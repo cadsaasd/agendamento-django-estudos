@@ -4,8 +4,8 @@ URL configuration for login app.
 from django.urls import path
 from . import views
 
-app_name = 'login'
+app_name = 'accounts'
 
 urlpatterns = [
-    path('', views.login)
+    path('', views.login_view)
 ]
