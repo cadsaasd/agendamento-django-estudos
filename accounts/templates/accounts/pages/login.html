@@ -1,4 +1,8 @@
 {% extends "accounts/base.html" %}
+{% load static %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'accounts/css/login.css' %}"> 
+{% endblock extra_css %}
 {% block title %}Login |{% endblock title %}Login |
 {% block content %}
 
