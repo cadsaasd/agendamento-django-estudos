@@ -1,6 +1,6 @@
-
 :root {
     /* cores principais */
+    --primary-0: #e2cad6;
     --primary-100: #D9ADC5;
     --primary-200: #A68597;
     --primary-300: #73455E;
@@ -20,24 +20,6 @@
     --gray-600: #3f3f3f;
 }
 
-@media (max-width: 480px) {
-    .main-content {
-        width: 100%;
-        max-width: 360px;
-        padding: 1.25rem;
-        border-radius: 16px;
-    }
-
-    .login-header h1 {
-        font-size: 2.3rem;
-    }
-
-    .input-content input {
-        height: 54px;
-        font-size: 0.95rem;
-    }
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -54,8 +36,8 @@ body {
 
     background-image:
         radial-gradient(at 15% 15%, var(--primary-200) 0px, transparent 70%),
-        radial-gradient(at 85% 15%, var(--off-white) 0px, transparent 60%),
-        radial-gradient(at 30% 85%, var(--primary-100) 0px, transparent 60%),
+        radial-gradient(at 85% 15%, var(--primary-0) 0px, transparent 60%),
+        radial-gradient(at 30% 85%, var(--primary-0) 0px, transparent 60%),
         radial-gradient(at 85% 85%, var(--primary-200) 0px, transparent 50%);
     background-size: cover;
     background-attachment: fixed;
@@ -68,11 +50,12 @@ body {
 .main-content {
     width: clamp(340px, 32vw, 520px);
     padding: clamp(1.5rem, 2.5vw, 2.8rem);
-    background-color: rgb(226, 202, 214);
+    background-color: var(--primary-0);
     border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 40px var(--primary-200);
     position: relative;
     z-index: 10;
+    animation: slideInLeft 0.45s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
 
 .login-header {
@@ -125,7 +108,7 @@ body {
     font-size: 1rem;
     pointer-events: none;
     transition: all 0.25s ease;
-    background-color: rgb(226, 202, 214);
+    background-color: var(--primary-0);
     padding: 0 0.35rem;
     z-index: 2;
     line-height: 1;
@@ -152,10 +135,25 @@ body {
 .input-content input:-webkit-autofill,
 .input-content input:-webkit-autofill:hover,
 .input-content input:-webkit-autofill:focus {
-    -webkit-box-shadow: 0 0 0 1000px rgb(226, 202, 214) inset;
+    -webkit-box-shadow: 0 0 0 1000px var(--primary-100) inset;
     -webkit-text-fill-color: var(--primary-500);
     border-radius: 10px;
     transition: background-color 9999s ease-in-out 0s;
+}
+
+.forgot-password {
+    display: block;
+    text-align: left;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--primary-200);
+    text-decoration: none;
+    margin-top: -0.8rem;
+    margin-bottom: 1.2rem;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
 }
 
 .button-content {
@@ -177,7 +175,7 @@ body {
 
 .button-content button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 1px 10px #73455e4b;
+    box-shadow: 0 1px 10px var(--primary-300);
 }
 
 .button-content button:active {
@@ -189,10 +187,13 @@ body {
     margin-top: 1.5rem;
     color: var(--primary-300);
     font-size: 0.85rem;
-
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
+}
+
+.login-footer p{
+    padding-top: 10px;
 }
 
 .login-footer a {
@@ -205,6 +206,29 @@ body {
     text-decoration: underline;
 }
 
+.footer-row {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    cursor: pointer;
+    color: var(--primary-300);
+    font-size: 0.85rem;
+    user-select: none;
+}
+
+.remember-me input[type="checkbox"] {
+    accent-color: var(--primary-300);
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+}
+
 @keyframes slideInRight {
     from { transform: translateX(80px); opacity: 0; }
     to   { transform: translateX(0);    opacity: 1; }
@@ -213,4 +237,22 @@ body {
 @keyframes slideInLeft {
     from { transform: translateX(-80px); opacity: 0; }
     to   { transform: translateX(0);     opacity: 1; }
+}
+
+@media (max-width: 480px) {
+    .main-content {
+        width: 100%;
+        max-width: 360px;
+        padding: 1.25rem;
+        border-radius: 16px;
+    }
+
+    .login-header h1 {
+        font-size: 2.3rem;
+    }
+
+    .input-content input {
+        height: 54px;
+        font-size: 0.95rem;
+    }
 }

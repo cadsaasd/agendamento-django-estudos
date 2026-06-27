@@ -27,12 +27,19 @@
         </div>
     </div>
 
+    <a class="forgot-password" href="#">Esqueceu a senha?</a>
+
     <div class="button-content">
         <button type="button">Entrar</button>
     </div>
 
     <footer class="login-footer">
-        <a href="#">Esqueceu a senha?</a>
+        <div class="footer-row">
+            <label class="remember-me" for="remember">
+                <input type="checkbox" id="remember">
+                <span>Lembrar de mim</span>
+            </label>
+        </div>
         <p>Não tem conta? <a href="{% url "accounts:register" %}">Cadastre-se aqui</a></p>
     </footer>
 </main>
