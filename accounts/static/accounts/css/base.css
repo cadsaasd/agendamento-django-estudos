@@ -142,18 +142,22 @@ body {
 }
 
 .forgot-password {
-    display: block;
-    text-align: left;
     font-size: 0.85rem;
     font-weight: 600;
     color: var(--primary-200);
     text-decoration: none;
-    margin-top: -0.8rem;
-    margin-bottom: 1.2rem;
+    margin: 0;
 }
 
 .forgot-password:hover {
     text-decoration: underline;
+}
+
+.middle-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
 }
 
 .button-content {
@@ -204,12 +208,6 @@ body {
 
 .login-footer a:hover {
     text-decoration: underline;
-}
-
-.footer-row {
-    display: flex;
-    justify-content: left;
-    align-items: center;
 }
 
 .remember-me {
